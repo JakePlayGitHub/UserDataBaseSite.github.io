@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../styles/profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="container-profile">
+        
+        <div class="profile-container">
+            <img id="profile-img" alt="Profile Image">
+            <h1 id="profile-username">Username</h1>
+            <p id="profile-bio">Bio</p>
+        </div>
+
+        <button id="logout-btn">Logout</button>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const profileImg = document.getElementById('profile-img');
+            const profileUsername = document.getElementById('profile-username');
+            const profileBio = document.getElementById('profile-bio');
+
+            // Retrieve user details from localStorage
+            const userProfileImage = localStorage.getItem('userProfileImage');
+            const username = localStorage.getItem('username');
+            const userBio = localStorage.getItem('userBio');
+
+            if (userProfileImage) {
+                profileImg.src = userProfileImage;
+            }
+            if (username) {
+                profileUsername.innerText = username;
+            }
+            if (userBio) {
+                profileBio.innerText = userBio;
+            }
+        });
+    </script>
+
+    <script type="module">
+
+        const logoutBtn = document.getElementById('logout-btn');
+
+        logoutBtn.addEventListener('click', () => {
+            window.location.href = "../index.html"
+        })
+    </script>
+</body>
+</html>
